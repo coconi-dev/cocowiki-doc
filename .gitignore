@@ -1,3 +1,4 @@
 .cocowiki/
+.local-packages/
 dist/
 node_modules/
