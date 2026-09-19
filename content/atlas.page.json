@@ -1,0 +1,8 @@
+{
+  "title": "图鉴示例",
+  "description": "由静态 JSON 驱动，展示搜索、筛选、排序和贡献统计",
+  "type": "special",
+  "category": "功能示例",
+  "tags": ["Vue", "筛选", "静态数据"],
+  "contributors": ["Mueo"]
+}
