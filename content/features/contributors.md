@@ -1,5 +1,6 @@
 ---
 title: 贡献者与署名
+order: 110
 description: 配置贡献者资料、页面署名和贡献次数统计
 type: guide
 category: 站点能力

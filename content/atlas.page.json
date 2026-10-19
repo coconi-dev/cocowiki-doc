@@ -4,5 +4,6 @@
   "type": "special",
   "category": "功能示例",
   "tags": ["Vue", "筛选", "静态数据"],
-  "contributors": ["Mueo"]
+  "contributors": ["Mueo"],
+  "order": 120
 }

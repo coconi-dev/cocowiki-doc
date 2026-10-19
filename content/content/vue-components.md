@@ -1,5 +1,6 @@
 ---
 title: 使用 Vue 组件
+order: 80
 description: 创建自动全局注册的 Vue 组件并在 Markdown 和专属页中使用
 type: guide
 category: 内容创作

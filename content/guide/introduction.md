@@ -1,5 +1,6 @@
 ---
 title: 认识 CoCoWiki
+order: 10
 description: 了解 CoCoWiki 的定位、适用场景与基本工作方式
 type: guide
 category: 开始使用

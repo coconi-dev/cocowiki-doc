@@ -1,5 +1,6 @@
 ---
 title: CLI 命令
+order: 170
 description: 使用 cocowiki dev、build 和 preview 管理站点
 type: reference
 category: 参考

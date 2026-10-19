@@ -1,5 +1,6 @@
 ---
 title: Markdown 与 Vue 示例
+order: 90
 description: 在 Markdown 正文中直接使用全局 Vue 组件
 type: example
 category: 功能示例

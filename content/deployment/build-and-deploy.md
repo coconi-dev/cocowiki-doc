@@ -1,5 +1,6 @@
 ---
 title: 构建与部署
+order: 180
 description: 构建纯静态站点并部署到常见静态托管平台
 type: guide
 category: 发布

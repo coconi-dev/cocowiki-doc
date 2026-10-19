@@ -1,5 +1,6 @@
 ---
 title: 配置参考
+order: 160
 description: cocowiki.config.ts 当前支持的全部配置项
 type: reference
 category: 参考

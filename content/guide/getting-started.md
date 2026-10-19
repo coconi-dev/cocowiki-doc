@@ -1,5 +1,6 @@
 ---
 title: 快速开始
+order: 20
 description: 创建、启动并构建一个 CoCoWiki 站点
 type: guide
 category: 开始使用

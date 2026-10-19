@@ -1,5 +1,6 @@
 ---
 title: 布局与主题
+order: 150
 description: 配置内容侧栏、目录、前后页、暗色模式与主题覆盖
 type: guide
 category: 配置

@@ -1,5 +1,6 @@
 ---
 title: 搜索与归档
+order: 100
 description: 了解构建期搜索索引、搜索范围和归档分类
 type: guide
 category: 站点能力

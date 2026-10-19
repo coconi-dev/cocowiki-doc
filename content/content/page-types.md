@@ -1,5 +1,6 @@
 ---
 title: 三种页面形式
+order: 70
 description: 使用普通 Markdown、Markdown 与 Vue 混合页和纯 Vue 专属页
 type: guide
 category: 内容创作

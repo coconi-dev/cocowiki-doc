@@ -1,5 +1,6 @@
 ---
 title: 站点配置
+order: 130
 description: 配置站点名称、语言、网址根目录、图标和目录位置
 type: guide
 category: 配置

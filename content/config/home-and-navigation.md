@@ -1,5 +1,6 @@
 ---
 title: 首页与导航
+order: 140
 description: 配置首页名称、说明、副标题、搜索和站点导航
 type: guide
 category: 配置

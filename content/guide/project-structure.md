@@ -1,5 +1,6 @@
 ---
 title: 项目目录
+order: 30
 description: 了解 CoCoWiki 用户项目中的目录与文件职责
 type: guide
 category: 开始使用

@@ -1,5 +1,6 @@
 ---
 title: Frontmatter
+order: 60
 description: 使用页面元信息控制标题、搜索、归档、贡献者与内容布局
 type: reference
 category: 内容创作
