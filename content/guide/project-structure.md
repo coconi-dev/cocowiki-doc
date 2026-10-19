@@ -84,6 +84,18 @@ public/images/map.webp
 
 `.cocowiki/` 是开发与构建时生成的内部运行目录，`dist/` 是最终静态产物。两者都不应手动维护，也通常不提交到 Git。
 
+不同命令分别使用独立的运行目录：
+
+```text
+.cocowiki/
+├─ site/       开发服务
+├─ build/      生产构建
+├─ preview/    静态预览
+└─ cache/      按运行模式隔离的缓存
+```
+
+开发期间运行构建不会清空 `site/`。这些目录仍然只是自动生成的文件，部署时只发布 `dist/`。
+
 :::danger 不要把内容写进 `.cocowiki/`
 该目录可能在启动或配置变化时重新生成。长期内容只应写在 `content/`、`components/`、`data/` 和 `public/` 中。
 :::

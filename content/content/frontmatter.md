@@ -26,6 +26,7 @@ aliases:
 contributors:
   - Mueo
 image: /contributors/xizhe.webp
+order: 10
 ---
 ```
 
@@ -41,6 +42,7 @@ image: /contributors/xizhe.webp
 | `aliases` | `string[]` | 别名，可用于搜索和 Wiki 内链 |
 | `contributors` | `string[]` | 贡献者键名 |
 | `image` | `string` | 页面相关图片地址，供组件或自定义主题使用 |
+| `order` | `number` | 底部相邻页面导航的阅读顺序，数字越小越靠前 |
 | `updated` | `string` | 保留给组件或自定义主题使用的更新时间文本 |
 
 如果未填写 `title`，普通 Markdown 会尝试使用正文中的第一个一级标题；为了让搜索和归档保持稳定，仍建议显式填写。
@@ -56,6 +58,39 @@ archive: false
 - `archive: false`：不显示在归档列表中。
 
 两个选项互不影响。某个页面可以不出现在搜索中，但仍保留在归档里。
+
+## 文档阅读顺序
+
+在页面 Frontmatter 设置 `order`，底部“上一篇 / 下一篇”按数值从小到大排列：
+
+```yaml
+---
+title: 快速开始
+order: 20
+---
+```
+
+例如 `10 → 20 → 30`；插入新页面时可使用 `15`。支持负数、零和小数，请填写 YAML 数值，避免写成带引号的字符串。
+
+- 未设置、类型不是数字或数值不是有限数的 `order` 排在已设置页面后面。
+- 数值相同时按标题排序，标题也相同时按页面路径排序，保证结果稳定。
+- `home`、`search`、`archive`、`contributors` 布局和 `search: false` 的页面不参与相邻页面导航。
+- `showPrevNext: false` 只隐藏当前页的导航，不会把当前页移出阅读顺序。
+- 此顺序不改变搜索排名、归档分组或顶部导航顺序。
+
+全局启用导航：
+
+```ts
+content: { showPrevNext: true }
+```
+
+纯 Vue 页面在同名 `.page.json` 中设置：
+
+```json
+{ "title": "组件图鉴", "order": 120 }
+```
+
+开发模式下保存文档或页面元数据后，相邻页面链接会自动更新。
 
 ## 内容布局
 
@@ -76,7 +111,7 @@ showLastUpdated: true
 单页设置优先于 `cocowiki.config.ts` 中的全局 `content` 设置。
 
 :::info `outline` 与 `sidebar`
-`outline: true` 会选择右侧目录，`outline: false` 会关闭目录；如需轻侧栏，请直接使用 `sidebar: light`。纯 Vue 专属页不会自动生成正文目录。
+`outline` 的明确设置优先于 `sidebar`。`outline: true` 选择右侧目录；`outline: false` 关闭标题目录，并在 `sidebar: light` 时保留轻侧栏。若全局启用了 `outline: true`，单页改用轻侧栏需同时设置 `outline: false` 和 `sidebar: light`。纯 Vue 专属页不会自动生成正文目录。
 :::
 
 ## 特殊布局

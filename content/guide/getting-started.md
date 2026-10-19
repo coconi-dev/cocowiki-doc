@@ -66,6 +66,7 @@ pnpm dev --host 0.0.0.0 --port 4173
 ```md
 ---
 title: 第一篇记录
+order: 10
 description: 我的 CoCoWiki 页面
 category: 示例
 tags: [开始]
@@ -87,23 +88,18 @@ pnpm preview
 
 `build` 成功后，部署时只需要上传 `dist/`。如果站点不是部署在域名根目录，请先阅读 [[构建与部署]] 中的 `base` 配置。
 
-## 更新 CoCoWiki
+## 更新依赖
 
-pnpm 项目：
-
-```bash
-pnpm update cocowiki
-```
-
-npm 项目：
-
-```bash
-npm update cocowiki
-```
-
-需要升级到最新主版本时，可以显式指定 `latest`：
+安装最新的 CoCoWiki：
 
 ```bash
 pnpm add cocowiki@latest
 ```
 
+npm 项目使用：
+
+```bash
+npm install cocowiki@latest
+```
+
+更新前退出开发服务，完成后重新构建并启动。将 `package.json` 与锁文件一起提交。

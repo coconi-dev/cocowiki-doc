@@ -34,11 +34,29 @@ content: {
 
 ```yaml
 ---
+outline: false
 sidebar: none
 showPrevNext: false
 showLastUpdated: false
 ---
 ```
+
+`outline` 的明确设置优先于 `sidebar`。例如本站全局开启了 `outline: true`，单页需要无侧栏时应同时设置 `outline: false`；使用轻侧栏时写成：
+
+```yaml
+outline: false
+sidebar: light
+```
+
+## 相邻页面顺序
+
+开启 `showPrevNext` 后，每页 Frontmatter 中的 `order` 控制阅读顺序。数值越小越靠前，未设置的排在后面。`order` 是页面字段，不放在全局 `content` 中，完整规则见 [[Frontmatter]]。
+
+## 默认外观与动效
+
+默认主题包含半透明导航与搜索控件、首页动态曲线和紧凑贡献者名片。页面切换以短暂淡入为主，列表有轻微错峰出现，按钮和卡片提供按压、悬停反馈；正文不做逐段滚动入场。
+
+动效遵循系统的“减少动态效果”，透明控件遵循“减少透明度”。若希望所有访客都看到静态背景，可在自定义 CSS 中隐藏 `.cw-home-flow`。没有独立的 `motion` 或 `glass` 配置字段。
 
 ## Light、Dark 与 System
 

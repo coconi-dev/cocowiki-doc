@@ -81,6 +81,7 @@ import AtlasPage from '../components/pages/AtlasPage.vue'
 ```json
 {
   "title": "万物图鉴",
+  "order": 120,
   "description": "浏览和筛选全部物品",
   "type": "special",
   "category": "功能页面",
@@ -89,7 +90,7 @@ import AtlasPage from '../components/pages/AtlasPage.vue'
 }
 ```
 
-最终页面地址是 `/atlas`。
+最终页面地址是 `/atlas`。`order` 会让该页面进入文档的阅读顺序；纯 Vue 页面默认使用自己的页面结构，不自动附加文档正文、目录或前后页导航。
 
 :::warning 元信息文件必须是合法 JSON
 JSON 不能包含注释或尾随逗号。修改 `.page.json` 后，开发服务器会重新生成对应页面和搜索索引。

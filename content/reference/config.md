@@ -19,7 +19,7 @@ contributors: [Mueo]
 | `title` | `string` | 必填 | 站点名称 |
 | `description` | `string` | 无 | 站点描述 |
 | `lang` | `string` | `zh-CN` | 页面语言 |
-| `logo` | `string` | 无 | 导航和首页默认 Logo |
+| `logo` | `string` | 无 | 导航 Logo |
 | `favicon` | `string` | `logo` 或 `/favicon.svg` | 浏览器图标 |
 | `base` | `string` | `/` | 部署网址根目录 |
 | `navigation` | `NavigationItem[]` | 无 | 顶部导航 |
@@ -28,7 +28,7 @@ contributors: [Mueo]
 | `search` | `SearchConfig` | 开启 | 搜索开关与扫描范围 |
 | `markdown` | `MarkdownConfig` | 扩展开启 | Markdown 扩展开关 |
 | `content` | `ContentConfig` | 见下文 | 内容页默认布局 |
-| `home` | `HomeConfig` | 见下文 | 首页内容与视觉 |
+| `home` | `HomeConfig` | 见下文 | 首页文案与搜索入口 |
 
 ## `navigation`
 
@@ -112,19 +112,14 @@ home: {
   search?: {
     placeholder?: string
   }
-  visual?: {
-    image?: string
-    labels?: string[]
-  }
   actions?: Array<{
     text: string
     link: string
-    theme?: 'brand' | 'alt'
   }>
 }
 ```
 
-`content/index.md` 中的 `hero` 可以覆盖这些值。
+`content/index.md` 中的 `hero` 按第一层字段覆盖这些值。首页入口按 `actions` 数组顺序显示为文字链接。
 
 ## `theme`
 
@@ -170,6 +165,7 @@ interface CocoWikiPageMeta {
   archive?: boolean
   outline?: boolean
   sidebar?: 'none' | 'light' | 'outline'
+  order?: number
   showPrevNext?: boolean
   showLastUpdated?: boolean
 }
@@ -214,10 +210,9 @@ export default defineCocoWikiConfig({
     showLastUpdated: true
   },
   home: {
-    visual: {
-      image: '/logo.png',
-      labels: ['人物', '地点', '组织', '物品']
-    }
+    name: '世界档案馆',
+    text: '所有资料一处查阅',
+    tagline: '搜索人物、地点与事件'
   },
   theme: {
     styles: './styles/custom.css'
