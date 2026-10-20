@@ -96,6 +96,28 @@ import ItemCard from './ItemCard.vue'
 
 显式导入更容易让编辑器提供类型提示，也能清楚表达组件之间的依赖。
 
+## Markdown 中的相对导入与 include
+
+在 Markdown 的 `script` 块中显式导入组件时，相对路径按源 Markdown 文件的位置解析。例如在 `content/demo.md` 中：
+
+```md
+<script setup lang="ts">
+import Chart from '../components/Chart.vue'
+</script>
+
+<Chart />
+```
+
+也可使用 `@components/Chart.vue` 或 `@data/items.json`，减少目录调整带来的修改。
+
+跨目录 include 同样按源 Markdown 文件解析：
+
+```md
+<!-- @include: ../snippets/introduction.md -->
+```
+
+被引用文件必须存在；区域和行范围继续使用 VitePress 的 include 语法。含脚本的可复用 Markdown 片段建议使用 `@components`、`@data` 别名。代码围栏中的导入示例不会被当作实际导入改写。
+
 ## 静态资源与 `base`
 
 Vue 组件中需要引用 `public/` 资源时，使用 `withBase()`：

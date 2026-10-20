@@ -38,8 +38,10 @@ my-wiki/
 | --- | --- |
 | `content/index.md` | `/` |
 | `content/world.md` | `/world` |
-| `content/archive/index.md` | `/archive` |
+| `content/archive/index.md` | `/archive/` |
 | `content/archive/characters/rabbit.md` | `/archive/characters/rabbit` |
+
+目录页保留结尾的 `/`：`content/archive.md` 对应 `/archive`，`content/archive/index.md` 对应 `/archive/`，两者可以同时存在。目录页链接也应保留这个斜杠。路径中的中文和空格会进行 URL 编码；最终路由冲突时会报告源文件位置。
 
 纯 Vue 页面也放在这里，文件名使用 `.page.vue`。具体规则见 [[三种页面形式]]。
 
@@ -95,7 +97,7 @@ public/images/map.webp
 └─ cache/      按运行模式隔离的缓存
 ```
 
-开发期间运行构建不会清空 `site/`。这些目录仍然只是自动生成的文件，部署时只发布 `dist/`。
+开发期间运行构建不会清空 `site/`。这些目录仍然只是自动生成的文件，部署时只发布 `dist/`。各运行目录的 `.vitepress/manifest.json` 记录源页面与生成文件的对应关系，用于清理已删除的内容；内容目录下的 `.vitepress/` 是保留路径。
 
 :::danger 不要把内容写进 `.cocowiki/`
 该目录可能在启动或配置变化时重新生成。长期内容只应写在 `content/`、`components/`、`data/` 和 `public/` 中。
@@ -114,3 +116,5 @@ directories: {
   out: 'build'
 }
 ```
+
+输入目录不能互相重叠，也不能与 `.cocowiki/` 或输出目录重叠；输出目录不能包含项目根目录。无效配置会在启动或构建前报告。

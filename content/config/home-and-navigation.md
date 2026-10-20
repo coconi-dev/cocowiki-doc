@@ -47,7 +47,9 @@ hero:
 | `tagline` | 灰色副标题，可省略 |
 | `eyebrow` | 主标题上方的可选小字，通常不必设置 |
 | `search.placeholder` | 搜索框提示文字 |
-| `actions` | 搜索框下方的文字入口 |
+| `actions` | 搜索框下方的文字入口，支持 `theme: brand` 强调字重，默认 `alt` |
+| `visual.image` | 首页展示区图片地址，自动应用 `base` |
+| `visual.labels` | 图片下方的文字标签数组，也可以单独使用 |
 | `note` | 页面底部的小字说明 |
 
 `hero` 与配置中的 `home` 按第一层字段合并；同名字段以当前页面为准。例如在 Frontmatter 中设置 `search`，会替换整个 `home.search` 对象。
@@ -68,7 +70,18 @@ home: {
 }
 ```
 
-首页入口由 `actions` 的文字与链接组成，按数组顺序显示。
+首页入口由 `actions` 的文字与链接组成，按数组顺序显示；每个入口可设置 `theme: 'brand'` 或 `theme: 'alt'`。
+
+可在 `home` 或页面 `hero` 中补充图片与标签：
+
+```ts
+visual: {
+  image: '/images/wiki-cover.webp',
+  labels: ['人物', '地点', '事件']
+}
+```
+
+图片应放入对应的 `public/` 路径。这个展示区与默认曲线背景是不同的区域。
 
 ## 首页背景
 

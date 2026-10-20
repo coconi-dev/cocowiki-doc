@@ -39,7 +39,7 @@ Markdown 渲染、Vue 支持、路由和静态构建来自 VitePress。CoCoWiki 
 | --- | --- | --- |
 | 普通 Markdown | `.md` | 人物、地点、概念和说明文章 |
 | Markdown + Vue | 在 `.md` 中使用组件 | 局部图表、状态标记和交互内容 |
-| 纯 Vue 页面 | `.page.vue` + `.page.json` | 图鉴、时间线、筛选器和关系图 |
+| 纯 Vue 页面 | `.page.vue`，可选同名 `.page.json` | 图鉴、时间线、筛选器和关系图 |
 
 大多数内容可以保持为 Markdown，只有页面主要功能依赖交互时才需要纯 Vue 页面。本站的 [[Markdown 与 Vue 示例]] 和 [[图鉴示例]] 分别展示后两种形式。
 

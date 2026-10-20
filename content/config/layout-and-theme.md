@@ -128,7 +128,20 @@ theme: {
 | 内容页 | `PageMeta`、`PageOutline`、`ContentSidebar`、`PageNavigation`、`PageFooter` |
 | 全局状态 | `SearchOverlay`、`Loading`、`NotFound` |
 
-替换组件会异步加载。路径相对于项目根目录。
+替换组件会异步加载。路径相对于项目根目录；缺失的主题入口、样式或覆盖组件，以及未知部件名，会在配置预检查时报告。
+
+### 覆盖组件的接口
+
+| 部件 | Props | 事件 |
+| --- | --- | --- |
+| `Header` | 无 | `open-search`：请求打开搜索浮层 |
+| `PageOutline` | `headers?: { level, title, slug }[]` | 无 |
+| `PageFooter` | `showLastUpdated?: boolean` | 无 |
+| `SearchOverlay` | 无 | `close`：请求关闭搜索浮层 |
+
+其余覆盖点没有约定 props 或事件，所有覆盖点均无命名插槽。可通过 VitePress 的 `useData()`、`useRoute()` 读取页面状态；覆盖搜索浮层时，需要处理焦点、键盘和页面滚动恢复。
+
+默认组件可以从 `cocowiki/theme/components` 导入复用，默认布局以 `CocoWikiLayout` 从 `cocowiki/theme` 导出。
 
 ## 使用完整主题入口
 

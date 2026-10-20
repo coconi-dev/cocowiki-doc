@@ -26,7 +26,7 @@ contributors: [Mueo]
 | `navigation` | `NavigationItem[]` | 无 | 顶部导航 |
 | `directories` | `Directories` | 见下文 | 用户目录位置 |
 | `theme` | `ThemeConfig` | 默认主题 | 样式、部件或主题入口 |
-| `search` | `SearchConfig` | 开启 | 搜索开关与扫描范围 |
+| `search` | `SearchConfig` | 开启 | 搜索入口与收录范围 |
 | `markdown` | `MarkdownConfig` | 扩展开启 | Markdown 扩展开关 |
 | `content` | `ContentConfig` | 见下文 | 内容页默认布局 |
 | `home` | `HomeConfig` | 见下文 | 首页文案与搜索入口 |
@@ -77,7 +77,9 @@ search: {
 }
 ```
 
-`include` 默认扫描 `**/*.md`；`exclude` 使用相对于内容目录的 glob 模式。
+`enabled` 默认 `true`，控制搜索入口。`include` 默认匹配 `**/*.md`、`**/*.page.vue`、`**/*.page.json`；`include` 和 `exclude` 均使用相对于内容目录的 glob 模式。
+
+这两个范围只决定搜索收录，不影响归档、相邻导航和贡献统计。Vue 源文件与同名 JSON 按同一页面匹配，任一名称命中 exclude 都优先排除整页；显式 `include: []` 不收录页面。
 
 ## `markdown`
 
@@ -113,9 +115,14 @@ home: {
   search?: {
     placeholder?: string
   }
+  visual?: {
+    image?: string
+    labels?: string[]
+  }
   actions?: Array<{
     text: string
     link: string
+    theme?: 'brand' | 'alt'
   }>
 }
 ```
@@ -146,7 +153,7 @@ theme: {
 }
 ```
 
-路径都相对于项目根目录。部件名称区分大小写，未知名称会在启动时报告错误。
+路径都相对于项目根目录。部件名称区分大小写，未知名称及缺失文件会在启动或配置重建前报告错误；覆盖组件的 props、事件和复用方式见 [[布局与主题]]。
 
 ## 页面 Frontmatter 参考
 

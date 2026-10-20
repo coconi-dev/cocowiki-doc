@@ -58,7 +58,7 @@ category: 示例
 
 ## 纯 Vue 专属页
 
-纯 Vue 页面由两个同名文件组成：
+纯 Vue 页面以 `.page.vue` 为实际页面源，可以用同名 `.page.json` 补充元数据：
 
 ```text
 content/atlas.page.vue
@@ -90,6 +90,8 @@ import AtlasPage from '../components/pages/AtlasPage.vue'
   "contributors": ["Mueo"]
 }
 ```
+
+`.page.json` 是可选的：没有它时，页面仍可访问并进入内容集合，标题默认取文件名。只有 JSON、没有同名 `.page.vue` 时，不生成页面或索引；删除 Vue 文件会移除生成页面，删除 JSON 则回退默认元数据。
 
 最终页面地址是 `/atlas`。`order` 会让该页面进入文档的阅读顺序；纯 Vue 页面默认使用自己的页面结构，不自动附加文档正文、目录或前后页导航。
 
